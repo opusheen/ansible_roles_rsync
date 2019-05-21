@@ -1,0 +1,20 @@
+# tasks file for build
+- name: Installation
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - maven
+    - git
+    - default-jdk
+
+- name: set java_home
+  shell: export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+
+- name: clone project from git
+  git:
+    repo: "{{ git_project }}"
+    dest: /home/project/
+
+- name: maven package
+  command: mvn package -f /home/project
