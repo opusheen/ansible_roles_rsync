@@ -1,3 +1,4 @@
+---
 # tasks file for build
 - name: Installation
   apt:
@@ -6,6 +7,7 @@
   with_items:
     - maven
     - git
+    - tomcat8
     - default-jdk
 
 - name: set java_home
@@ -18,3 +20,6 @@
 
 - name: maven package
   command: mvn package -f /home/project
+
+- name: copy file to run
+  command: rsync  /home/project/target/hello-1.0.war root@10.140.0.2:/var/lib/tomcat8/webapps
