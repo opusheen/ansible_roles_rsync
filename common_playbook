@@ -1,0 +1,13 @@
+- name: prepare prod env
+  hosts: run
+  become: yes
+
+  roles:
+   - run
+
+- name: build and copy artifact
+  hosts: build
+  become: yes
+
+  roles:
+   - build
