@@ -1,0 +1,4 @@
+---
+# defaults file for build
+
+git_project: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
