@@ -1,13 +1,21 @@
-- name: prepare prod env
+- name: prod preparation
   hosts: run
   become: yes
 
   roles:
    - run
 
-- name: build and copy artifact
+- name: build
   hosts: build
   become: yes
 
   roles:
    - build
+
+
+- name: restart service
+  hosts: run
+  become: yes
+
+  roles:
+    - restart_tomcat
