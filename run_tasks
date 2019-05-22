@@ -1,14 +1,8 @@
 ---
 # tasks file for run
--name: install Tomcat
- apt:
-     name: tomcat8
-     state: present
-   
-- name: copy war file to webapps remote_to_remote
-  synchronize:
-     src: /home/project/target/hello-1.0.war
-     dest: /var/lib/tomcat8/webapps
-  delegate_to: build
-  notify:
-      - tomcat8 restart
+- name: install tomcat
+  apt:
+    name: tomcat8
+    state: present
+~
+
