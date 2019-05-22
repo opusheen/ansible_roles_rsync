@@ -1,0 +1,4 @@
+---
+# tasks file for restart_tomcat
+- name: tomcat8 restart
+  service: name=tomcat8 state=restarted
